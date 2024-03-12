@@ -1,0 +1,107 @@
+body
+{
+	background-color:crimson;
+}
+
+
+.combine
+{
+	margin-top:30px;
+	margin-left:100px;
+	
+	
+	 box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+	width:400px;
+	height:400px;
+}
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+	border-radius: 25px;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  .dropdown {
+	 
+	  margin-top:60px;
+	  margin-left:20px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    margin-top: 30px;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+     
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+	text-align:left;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+  
+  
+  
+  
+  div.form1
+  {
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+	margin-top:30px;
+	margin-left:100px;
+	width:400px;
+	height:400px; 
+  }
+  
+  form
+  {
+      padding-top:30px;
+	  margin-top:20px;
+  } 
+button
+{
+	margin-top:20px;
+	padding-top:30px;
+}	
+#text
+{
+	height:50px;
+}
+  
+  
+  
+  
+  
+  
+/* toggle css */
+#limit {
+    width:380px;
+    margin:25px;
+    font-family: "p22-underground",sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size:13pt;
+    line-height:1.1;
+    display:none;
+
+}
+/* toggle css end */

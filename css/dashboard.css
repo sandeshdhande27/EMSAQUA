@@ -1,0 +1,160 @@
+.sidebar-container {
+    position: fixed;
+    width: 320px;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #1a1a1a;
+    color: #fff;
+  }
+  
+ 
+  
+  .sidebar-logo {
+    padding: 5px 15px 10px 30px;
+    font-size: 20px;
+    background-color: #e42200b0;
+  }
+  
+  .sidebar-navigation {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    position: relative;
+  }
+  
+  .sidebar-navigation li {
+    background-color: transparent;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    line-height: 20px;
+    font-size: 20px;
+    
+  }
+  
+  .sidebar-navigation li a {
+    padding: 15px 15px 10px 30px;
+    display: block;
+    
+    font-size: 20px;
+  }
+  
+  
+  .sidebar-navigation li::before {
+    background-color: #2574A9;
+  position: absolute;
+  content: '';
+  height: 100%;
+  left: 0;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 3px;
+  z-index: -1;
+}
+  
+  .sidebar-navigation li:hover::before {
+      width: 100%;
+  }
+  /* header navigation */
+  .sidebar-navigation .header {
+    font-size: 25px;
+    text-transform: uppercase;
+    background-color: #151515;
+    padding: 10px 15px 10px 30px;
+  }
+  
+  .sidebar-navigation .header::before {
+    background-color: transparent;
+  }
+  table.first {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    border: 2px black solid;
+    margin-left: 322px;
+    margin-right: 422px;
+    margin-top: 80px;
+    margin-bottom: 10px;
+   padding-top: 50px;
+    text-align: center;
+}
+
+  
+ 
+  div.container
+  {
+      font-size: 45px;
+      margin-left: 30.7%;
+      margin-right: 30.4%;
+      background-color: rgba(220, 20, 60, 0.671);
+      height: 90px;
+      width: 60%;
+      text-align:center;
+      color:white;
+  
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+       padding-top: -2px;
+        /* padding: 20px; */
+        
+      }
+  
+  /* body
+  {
+  background-image:url("images/design.jpg");
+  } */
+  #buttond
+  {
+      width: 250px;
+      height: 50px;
+      font-size: 20px;
+  }
+  #buttond1
+  {
+      width: 250px;
+      height: 50px;
+      font-size: 20px;
+  }
+  #buttond2
+  {
+      width: 250px;
+      height: 50px;
+      font-size: 20px;
+  }
+  #image {
+    width: 270px;
+}
+
+
+/* search button */
+div.search
+{
+  background-color: crimson;
+  font-size: 27px;
+  margin-left: 660px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+  width: 320px;
+  height: 60px;
+  margin-top: 10px;
+  padding-top: 10px;
+
+      position: -webkit-sticky;
+      position: sticky;
+      top: 90;
+     padding-top: -2px;
+      /* padding: 20px; */
+      
+    }
+    #myInput
+    {
+      margin-left: 5px;
+    }
+
+
+
+
+
+  

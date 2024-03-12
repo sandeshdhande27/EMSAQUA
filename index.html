@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMS</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+
+  <!-- <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css"> -->
+
+</head>
+
+<style>
+#channel_KWH {
+  width: 100%;
+  height: 50%;
+}
+#channel_KWH22 {
+  width: 100%;
+  max-width:100%;
+  height: 500px;
+}
+#channel_KWH33 {
+  width: 100%;
+  max-width:100%;
+  height: 500px;
+}
+</style>
+
+<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__wobble" src="" alt="" height="60" width="60">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-dark" style="margin-left: 0;">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <!-- <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li> -->
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="login.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index.html" class="nav-link">Monitor view</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="overview.html" class="nav-link">Overview</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="livemeter.html" class="nav-link">Meter Status</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="report.html" class="nav-link">Reports</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="mailindex.html" class="nav-link">Mail</a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="window.history.back()" role="button">
+            <i class="fas fa-arrow-left"></i> Back
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="location.reload()" role="button">
+            <i class="fas fa-sync-alt"></i> Refresh
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <i class="fas fa-expand-arrows-alt"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+            <i class="fas fa-th-large"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+            <img src="images/Aquapharm.jpg" alt="" class="" style="height: 50px; width: 50px; margin-top: -20px;">
+          </a>
+        </li>
+      </ul>
+      
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="display: none;">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light"><h1><b>EMS</b></h1></span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <!-- <img src="assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
+        </div>
+        <div class="info">
+          <a href="#" class="d-block"></a>
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="margin-left: 30px; margin-right: 30px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
+              <!-- <li class="breadcrumb-item active">Dashboard v2</li> -->
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info" style="height: 150px;">
+              <div class="inner">
+                <h4>EB Consumption</h4>
+                <p id="eb_consumption_live">Live</p>
+                <p id="eb_consumption_yesterday">Today </p>
+                <p id="eb_consumption_month">Month </p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-6 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success"  style="height: 150px;">
+              <div class="inner">
+                <h5>Factory Power Factor</h5>
+                <p id="live_power_factor"> </p>
+                <p id="yesterday_power_factor">Today </p>
+                <p id="month_power_factor">Month </p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
+            </div>
+          </div>
+          <!-- ./col -->
+          <!-- <div class="col-lg-4 col-6">
+            <div class="small-box bg-warning"  style="height: 150px;">
+              <div class="inner">
+                <h5>Meter Status</h5>
+                <p id="active_meter"></p>
+                <p id="inactive_meter"></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+            </div>
+          </div> -->
+        </div>
+         <!-- Filter buttons -->
+                      <!-- <div id="filterButtons">
+                          <button data-interval="hourly">Hourly</button>
+                          <button data-interval="daily">Daily</button>
+                          <button data-interval="weekly">Weekly</button>
+                          <button data-interval="monthly">Monthly</button>
+                      </div> -->
+
+        <!-- BAR CHART START-->
+        <div class="row">
+          <div class="col-12">
+              <div class="card card-danger">
+                  <div class="card-header">
+                      <h3 class="card-title">Load Consumption</h3>
+                      <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                              <i class="fas fa-minus"></i>
+                          </button>
+                          <button type="button" class="btn btn-tool" data-card-widget="remove">
+                              <i class="fas fa-times"></i>
+                          </button>
+                      </div>
+                  </div>
+                  <div class="card-body">                    
+                      <!-- Chart container -->
+                      <div class="form-group" style="margin-left: 90%;">
+                        <!-- <label>Select Time</label> -->
+                        <select class="form-control select2" style="width: 110%;" id="intervalSelect">
+                          <option selected="selected">Select Time</option>
+                          <option value="hourly">Hourly</option>
+                          <option value="weekly">Weekly</option>
+                          <option value="monthly">Monthly</option>
+                        </select>
+                      </div>
+                      <div id="channel_KWH1" style="height: 50vh; color:#ffffff;"></div>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+    </section>
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <!-- <footer class="main-footer">
+    <strong>Copyright &copy; 2024-2025 <a href="">Orbittal</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.2.0
+    </div>
+  </footer> -->
+
+  <footer class="main-footer" style="margin-right: 200px;">
+    <!-- <div class="float-right d-none d-sm-block">
+    </div> -->
+    <strong style="margin-left: 40%;">Copyright &copy; 2024 <a href="">Optim</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- JQuery min js -->
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="assets/dist/js/adminlte.js"></script>
+<!-- ChartJS -->
+<!-- <script src="../../plugins/chart.js/Chart.min.js"></script> -->
+<!-- PAGE PLUGINS -->
+<!-- jQuery Mapael -->
+<script src="assets/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script src="assets/plugins/raphael/raphael.min.js"></script>
+<script src="assets/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="assets/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+<!-- ChartJS -->
+<script src="assets/plugins/chart.js/Chart.min.js"></script>
+<!-- <script src="../../plugins/chart.js/Chart.min.js"></script> -->
+<!-- amcharts -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+<!-- amcharts -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="assets/dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="assets/dist/js/pages/dashboard2.js"></script>
+
+
+<script>
+
+var socket = io();
+
+  // function goBack() {
+  //   window.history.back();
+  // }
+
+  // function refreshPage() {
+  //   location.reload();
+  // }
+
+
+  // socket.emit('getData','getData');
+  // socket.emit('get_load_data_Chart', 'get_load_data_Chart');
+//////////////////////////////////////////////////////////////og pie///////////////////////////////////////
+// socket.on("send_load_data_Chart", function (load_arr) {
+//     console.log("send_load_data_Chart:::::", load_arr);
+//     var load_data_value_arr = [];
+
+//     for (var k = 0; k < load_arr.length; k = k + 2) {
+//         var load_name = load_arr[k];
+//         var KWH = load_arr[k + 1];
+//         load_data_value_arr.push({
+//             Load: load_name,
+//             KWH: KWH,
+//         });
+//         console.log("load_data_value_arr111111111111111:::", load_data_value_arr);
+//     }
+
+//     am4core.ready(function () {
+//         // Themes begin
+//         am4core.useTheme(am4themes_animated);
+//         // Themes end
+
+//         // Create chart instance
+//         var chart = am4core.create("channel_KWH", am4charts.PieChart);
+
+//         chart.data = load_data_value_arr;
+
+//         // Add and configure Series
+//         var pieSeries = chart.series.push(new am4charts.PieSeries());
+//         pieSeries.dataFields.value = "KWH";
+//         pieSeries.dataFields.category = "Load";
+//         pieSeries.slices.template.stroke = am4core.color("#fff");
+//         pieSeries.slices.template.strokeOpacity = 1;
+
+//         // Set the color of the label font
+//         pieSeries.labels.template.fill = am4core.color("#ffffff");
+
+//         // This creates initial animation
+//         pieSeries.hiddenState.properties.opacity = 1;
+//         pieSeries.hiddenState.properties.endAngle = -90;
+//         pieSeries.hiddenState.properties.startAngle = -90;
+
+//         chart.hiddenState.properties.radius = am4core.percent(0);
+//     });
+// });
+//////////////////////////////////////////////////////////////og pie///////////////////////////////////////
+
+
+
+////////////////////////////////////////////Bar Graph Kwh strt /////////////////////////////////////////////////////////
+
+
+// socket.emit('get_load_data_Chart', 'get_load_data_Chart');
+// Add event listener to select dropdown
+document.getElementById('intervalSelect').addEventListener('change', function() {
+    var interval = this.value;
+    socket.emit('get_load_data_Chart', interval);
+    console.log("get_load_data_Chart:::", interval);
+});
+
+/************* og bar chart *************/
+// socket.on("send_load_data_Chart", function (load_arr) {
+//     console.log("send_load_data_Chart:::::", load_arr);
+//     var load_data_value_arr = [];
+
+//     for (var k = 0; k < load_arr.length; k = k + 2) {
+//         var load_name = load_arr[k];
+//         var KWH = load_arr[k + 1];
+//         load_data_value_arr.push({
+//             Load: load_name,
+//             KWH: KWH,
+//         });
+//         console.log("load_data_value_arr111111:::", load_data_value_arr);
+//     }
+
+//     am4core.ready(function () {
+//         // Themes begin
+//         am4core.useTheme(am4themes_animated);
+//         // Themes end
+
+//         // Create chart instance
+//         var chart = am4core.create("channel_KWH1", am4charts.XYChart);
+
+//         chart.data = load_data_value_arr;
+
+//         // Create axes
+//         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+//         categoryAxis.dataFields.category = "Load";
+//         categoryAxis.renderer.grid.template.location = 0;
+//         categoryAxis.renderer.minGridDistance = 30;
+//         categoryAxis.renderer.labels.template.rotation = -90;
+//         categoryAxis.renderer.labels.template.horizontalCenter = "right";
+//         categoryAxis.renderer.labels.template.verticalCenter = "middle";
+//         categoryAxis.renderer.labels.template.fill = am4core.color("#ffffff"); // Set label color to white
+
+//         var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+//         valueAxis.renderer.labels.template.fill = am4core.color("#ffffff"); // Set label color to white
+
+//         // Create series
+//         var series = chart.series.push(new am4charts.ColumnSeries());
+//         series.dataFields.valueY = "KWH";
+//         series.dataFields.categoryX = "Load";
+//         series.name = "KWH";
+//         series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+//         series.columns.template.fillOpacity = .8;
+
+//         // Add scrollbar
+//         // chart.scrollbarX = new am4core.Scrollbar();
+
+//         // Add cursor
+//         chart.cursor = new am4charts.XYCursor();
+//     });
+// });
+/************* og bar chart *************/
+
+      socket.on("send_load_data_Chart", function (load_arr) {
+        console.log("send_load_data_Chart:::::", load_arr);
+        
+        var load_data_value_arr = [];
+
+        for (var k = 0; k < load_arr.length; k = k + 2) {
+            var load_name = load_arr[k];
+            var KWH = load_arr[k + 1];
+            load_data_value_arr.push({
+                Load: load_name,
+                KWH: KWH,
+            });
+            console.log("load_data_value_arr111111:::", load_data_value_arr);
+        }
+
+        am4core.ready(function () {
+            // Themes begin
+            am4core.useTheme(am4themes_animated);
+          
+            // Create chart instance
+            var chart = am4core.create("channel_KWH1", am4charts.XYChart);
+
+            chart.data = load_data_value_arr;
+
+            // Create axes
+            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            categoryAxis.dataFields.category = "Load";
+            categoryAxis.renderer.grid.template.location = 0;
+            categoryAxis.renderer.minGridDistance = 30;
+            categoryAxis.renderer.labels.template.rotation = -90;
+            categoryAxis.renderer.labels.template.horizontalCenter = "right";
+            categoryAxis.renderer.labels.template.verticalCenter = "middle";
+            categoryAxis.renderer.labels.template.fill = am4core.color("#ffffff"); 
+
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.renderer.labels.template.fill = am4core.color("#ffffff"); // Set label color to white
+
+            // Create series
+            var series = chart.series.push(new am4charts.ColumnSeries());
+            series.dataFields.valueY = "KWH";
+            series.dataFields.categoryX = "Load";
+            series.name = "KWH";
+            series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+            series.columns.template.fillOpacity = .8;
+
+            // Add scrollbar
+            // chart.scrollbarX = new am4core.Scrollbar();
+
+            // Add cursor
+            chart.cursor = new am4charts.XYCursor();
+        });
+      });
+
+
+// socket.on("send_load_data_Chart", function (load_arr) {
+//     console.log("send_load_data_Chart:::::", load_arr);
+//     var load_data_value_arr = [];
+
+//     for (var k = 0; k < load_arr.length; k = k + 2) {
+//         var load_name = load_arr[k];
+//         var KWH = load_arr[k + 1];
+//         load_data_value_arr.push({
+//             Load: load_name,
+//             KWH: KWH,
+//         });
+//         console.log("load_data_value_arr111111111111111:::", load_data_value_arr);
+//     }
+
+//     am4core.ready(function () {
+//         // Themes begin
+//         am4core.useTheme(am4themes_animated);
+//         // Themes end
+
+//         // Create chart instance
+//         var chart = am4core.create("channel_KWH1", am4charts.XYChart);
+
+//         // Function to update chart data based on time interval
+//         function updateChartData(interval) {
+//             var filteredData = [];
+//             var currentDate = new Date();
+//             var currentMonth = currentDate.getMonth();
+//             var currentDay = currentDate.getDate();
+//             var currentHour = currentDate.getHours();
+
+//             switch (interval) {
+//                 case 'hourly':
+//                     filteredData = load_data_value_arr.filter(function(data) {
+//                         // Filter data for the current hour
+//                         var loadDate = new Date(data.Load);
+//                         return loadDate.getMonth() === currentMonth &&
+//                                loadDate.getDate() === currentDay &&
+//                                loadDate.getHours() === currentHour;
+//                     });
+//                     break;
+//                 case 'daily':
+//                     filteredData = load_data_value_arr.filter(function(data) {
+//                         // Filter data for the current day
+//                         var loadDate = new Date(data.Load);
+//                         return loadDate.getMonth() === currentMonth &&
+//                                loadDate.getDate() === currentDay;
+//                     });
+//                     break;
+//                 case 'weekly':
+//                     // Your logic for weekly filtering
+//                     break;
+//                 case 'monthly':
+//                     // Your logic for monthly filtering
+//                     break;
+//                 default:
+//                     filteredData = load_data_value_arr;
+//                     break;
+//             }
+            
+//             // Update chart data
+//             chart.data = filteredData;
+//         }
+
+//         chart.data = load_data_value_arr;
+
+//         // Create axes
+//         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+//         categoryAxis.dataFields.category = "Load";
+//         categoryAxis.renderer.grid.template.location = 0;
+//         categoryAxis.renderer.minGridDistance = 30;
+//         categoryAxis.renderer.labels.template.rotation = -90;
+//         categoryAxis.renderer.labels.template.horizontalCenter = "right";
+//         categoryAxis.renderer.labels.template.verticalCenter = "middle";
+//         categoryAxis.renderer.labels.template.fill = am4core.color("#ffffff"); // Set label color to white
+
+//         var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+//         valueAxis.renderer.labels.template.fill = am4core.color("#ffffff"); // Set label color to white
+
+//         // Create series
+//         var series = chart.series.push(new am4charts.ColumnSeries());
+//         series.dataFields.valueY = "KWH";
+//         series.dataFields.categoryX = "Load";
+//         series.name = "KWH";
+//         series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+//         series.columns.template.fillOpacity = .8;
+
+//         // Add filtering controls
+//         var filterButtons = document.getElementById("filterButtons");
+
+//         filterButtons.addEventListener("click", function(event) {
+//             var interval = event.target.getAttribute("data-interval");
+//             updateChartData(interval);
+//         });
+
+//         // Add cursor
+//         chart.cursor = new am4charts.XYCursor();
+//     });
+// });
+
+////////////////////////////////////////////Bar Graph Kwh end /////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////// EB consumption strt ////////////////////////////////////////////
+
+   //******* get Live consumption count start *******//
+   function updateLiveData() {
+      fetch('/live_consumption_endpoint')
+          .then(response => response.json())
+          .then(data => {
+              if (data.length > 0) {
+                  const loadValue = data[0].KWH;
+                  document.getElementById('eb_consumption_live').innerHTML = 'Live <strong>' + loadValue + '</strong> KWH';
+                  console.log("hhhhhhh", loadValue);
+              } else {
+                  console.error('Empty or unexpected response:', data);
+              }
+          })
+          .catch(error => {
+              console.error('Error fetching live data:', error);
+          });
+  }
+
+      updateLiveData();
+      setInterval(updateLiveData, 900000);
+   //******* get Live consumption count end *******//
+
+
+   //******* get yesterday consumption count start *******//
+    function updateYestData() {
+      fetch('/yesterday_consumption_endpoint')
+          .then(response => response.json())
+          .then(data => {
+              if (data.length > 0) {
+                  const loadValue = data[0].KWH;
+                  document.getElementById('eb_consumption_yesterday').innerHTML = 'Yesterday <strong>' + loadValue + '</strong> KWH';
+                  console.log("yyyyyyyyy", loadValue);
+              } else {
+                  console.error('Empty or unexpected response:', data);
+              }
+          })
+          .catch(error => {
+              console.error('Error fetching live data:', error);
+          });
+  }
+
+      updateYestData();
+      setInterval(updateYestData, 900000);
+   //******* get yesterday consumption count end *******//
+   
+
+   //******* get monthly consumption count start *******//
+      function updateMonthData() {
+      fetch('/monthly_consumption_endpoint')
+          .then(response => response.json())
+          .then(data => {
+              if (data.length > 0) {
+                  const loadValue = data[0].KWH;
+                  document.getElementById('eb_consumption_month').innerHTML = 'Month <strong>' + loadValue + '</strong> KWH';
+                  console.log("monthly_consumptionnnn::::", loadValue);
+              } else {
+                  console.error('Empty or unexpected response:', data);
+              }
+          })
+          .catch(error => {
+              console.error('Error fetching live data:', error);
+          });
+  }
+
+      updateMonthData();
+      setInterval(updateMonthData, 900000);
+   //******* get monthly consumption count end *******//
+//////////////////////////////////////////////////// EB consumption end //////////////////////////////////////////////
+  
+
+////////////////////////////////////////////// Factory Power Factor strt /////////////////////////////////////////////
+   //******* get Live power factor count start *******//
+      function updatepowerLiveData() {
+          fetch('/live_powerFactor_endpoint')
+              .then(response => response.json())
+              .then(data => {
+                  if (data.length > 0) {
+                      const powerValue = data[0].PowerFactor;
+                      document.getElementById('live_power_factor').innerHTML = 'Live <strong>' + powerValue + '</strong>';
+                      console.log("powerValueeeeeee::::", powerValue);
+                  } else {
+                      console.error('Empty or unexpected response:', data);
+                  }
+              })
+              .catch(error => {
+                  console.error('Error fetching live data:', error);
+              });
+      }
+
+       updatepowerLiveData();
+       setInterval(updatepowerLiveData, 900000); 
+    //******* get Live power factor count end *******//
+
+
+    //******* get Month power factor count start *******//
+      function updatepowerYesterdayData() {
+          fetch('/yesterday_powerFactor_endpoint')
+              .then(response => response.json())
+              .then(data => {
+                  if (data.length > 0) {
+                      const powerYestValue = data[0].PowerFactor;
+                      document.getElementById('yesterday_power_factor').innerHTML = 'Yesterday <strong>' + powerYestValue + '</strong>';
+                      console.log("powerYestValuehhhhhhh::::", powerYestValue);
+                  } else {
+                      console.error('Empty or unexpected response:', data);
+                  }
+              })
+              .catch(error => {
+                  console.error('Error fetching live data:', error);
+              });
+      }
+
+      updatepowerYesterdayData();
+      setInterval(updatepowerYesterdayData, 900000); 
+  
+
+    //******* get Month power factor count start *******//
+      function updatepowerMonthData() {
+              fetch('/monthly_powerFactor_endpoint')
+                  .then(response => response.json())
+                  .then(data => {
+                      if (data.length > 0) {
+                          const powerMonthValue = data[0].PowerFactor;
+                          document.getElementById('month_power_factor').innerHTML = 'Month <strong>' + powerMonthValue + '</strong>';
+                          console.log("powerMonthValueuuuuu::::", powerMonthValue);
+                      } else {
+                          console.error('Empty or unexpected response:', data);
+                      }
+                  })
+                  .catch(error => {
+                      console.error('Error fetching live data:', error);
+                  });
+          }
+
+      updatepowerMonthData();
+      setInterval(updatepowerMonthData, 900000); 
+    //******* get Month power factor count end *******//
+
+////////////////////////////////////////////// Factory Power Factor end /////////////////////////////////////////////
+
+
+   //******* Meter Status count start *******//
+//       function updateMeterStatus() {
+//       fetch('/meter_status_endpoint')
+//         .then(response => response.json())
+//         .then(data => {
+//             const activeCount = data.activeCount || 0;
+//             let inactiveCount = data.inactiveCount || 0;
+//             inactiveCount = inactiveCount.toString();
+//             const inactive = inactiveCount.split('-');
+//             console.log("inactiveee::::::", inactive);
+
+//             document.getElementById('active_meter').innerHTML = `Active <strong>${activeCount}/27</strong>`;
+//             document.getElementById('inactive_meter').innerHTML = `Inactive <strong>${inactive[1]}/27</strong>`;
+
+//             console.log("countttt::::", activeCount, inactive);
+//         })
+//         .catch(error => {
+//             console.error('Error fetching meter status:', error);
+//         });
+// }
+
+//       updateMeterStatus();
+//       setInterval(updateMeterStatus, 900000);
+   //******* Meter Status count end *******//
+  </script>
+  
+</body>
+</html>

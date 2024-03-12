@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMS</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css"> -->
+</head>
+
+
+<style>
+/* dropdown style strt */
+  .toggle-next {
+    border-radius: 0;
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  .ellipsis {
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .apply-selection {
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .ajax-link {
+    display: none;
+  }
+
+  .checkboxes {
+    margin: 0;
+    display: none;
+    border: 1px solid #ccc;
+    border-top: 0;
+  }
+
+  .inner-wrap {
+    padding: 5px 10px;
+    max-height: 140px;
+    overflow: auto;
+  }
+
+  button {
+    font-size: 18px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    will-change: box-shadow,transform;
+    /* background: radial-gradient( 100% 100% at 100% 0%, #737d80 0%, #111111 100% ); */
+    /* background-color: #008080; */
+    /* background-color: #556b2f; */
+    background-color: #3498db;
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+    padding: 0 2em;
+    border-radius: 0.3em;
+    color: #fff;
+    height: 2.6em;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+
+  button:hover {
+    box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #3c4fe0;
+    transform: translateY(-0.1em);
+  }
+
+  button:active {
+    box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
+    transform: translateY(0em);
+  }
+
+/* dropdown style end */
+
+  #lineChart11 {
+    width: 100%;
+    height: 500px;
+  }
+
+  #lineChart22 {
+    width: 100%;
+    height: 500px;
+  }
+
+  #lineChart33 {
+    width: 100%;
+    height: 500px;
+  }
+
+  #lineChart44 {
+    width: 100%;
+    height: 500px;
+  }
+
+  #chartdiv {
+    width: 100%;
+    height: 500px;
+  }
+
+  .chart-container {
+      /* display: none; */
+      width: 100%;
+  }
+
+  /* all */
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+  
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  }
+  
+  :root {
+  --main-blue: #71b7e6;
+  --main-purple: #9b59b6;
+  --main-grey: #ccc;
+  --sub-grey: #d9d9d9;
+  }
+  
+  body {
+      background-image: url('images/background-spectrum-background.jpg'); /* Add your background image URL here */
+      background-size: cover;
+      background-position: center;
+      font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  /* body {
+  display: flex;
+  height: 100vh;
+  justify-content: center; 
+  align-items: center; 
+  background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+  padding: 10px;
+  } */
+  /* container and form */
+  .content {
+    width: 400px;
+    margin-top: 100px;
+    margin-left: 300px;
+  }
+  .container {
+    background-color: rgba(255, 255, 255, 0.1); /* Adjust opacity here */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(240, 237, 237, 0.1), 0 1px 3px rgba(253, 253, 253, 0.08);
+  }
+  .container .title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+  }
+  
+  .container .title::before {
+  content: "";
+  position: absolute;
+  height: 3.5px;
+  width: 30px;
+  background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+  left: 0;
+  bottom: 0;
+  }
+  
+  .container form .user__details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; /* Center items horizontally */
+    justify-content: center;
+    margin: 20px 0 12px 0;
+  }
+  /* inside the form user details */
+  form .user__details .input__box {
+  width: calc(100% / 2 - 20px);
+  margin-bottom: 15px;
+  }
+  
+  .user__details .input__box .details {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+  }
+  .user__details .input__box input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid var(--main-grey);
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  color: black !important;
+  }
+  
+  .user__details .input__box input:focus,
+  .user__details .input__box input:valid {
+  border-color: var(--main-purple);
+  }
+
+  /* inside the form gender details */
+  form .gender__details .gender__title {
+  font-size: 20px;
+  font-weight: 500;
+  }
+  
+  form .gender__details .category {
+  display: flex;
+  width: 80%;
+  margin: 15px 0;
+  justify-content: space-between;
+  }
+  
+  .gender__details .category label {
+  display: flex;
+  align-items: center;
+  }
+  
+  .gender__details .category .dot {
+  height: 18px;
+  width: 18px;
+  background: var(--sub-grey);
+  border-radius: 50%;
+  margin: 10px;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+  }
+  
+  #dot-1:checked ~ .category .one,
+  #dot-2:checked ~ .category .two,
+  #dot-3:checked ~ .category .three {
+    border-color: var(--sub-grey);
+    background: var(--main-purple);
+  }
+  
+  form input[type="radio"] {
+    display: none;
+  }
+  
+  /* submit button */
+  form .button {
+  height: 45px;
+  margin: 45px 0;
+  }
+  
+  form .button input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+  transition: all 0.3s ease;
+  }
+  
+  form .button input:hover {
+    background: linear-gradient(-135deg, var(--main-blue), var(--main-purple));
+  }
+  
+  @media only screen and (max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+  
+  form .user__details .input__box {
+    margin-bottom: 15px;
+    width: 100%;
+
+  }
+  
+  form .gender__details .category {
+    width: 100%;
+  }
+  
+  .container form .user__details {
+    max-height: 300px;
+    overflow-y: scroll;
+    align-items: center; 
+    justify-content: center;
+
+
+  }
+  
+  .user__details::-webkit-scrollbar {
+    width: 0;
+
+  }
+  }
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .input__box {
+    margin-bottom: 20px;
+  }
+  .details {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity here */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  .button {
+    text-align: center;
+  }
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff; /* Your desired button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #0056b3; /* Your desired button color on hover */
+  }
+  </style>
+
+
+<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<!-- <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" style="background: linear-gradient(135deg, var(--main-blue), var(--main-purple));"> -->
+
+  
+  <!-- <div class="wrapper"> -->
+    <!-- <div class="wrapper" style="background: linear-gradient(135deg, var(--main-blue), var(--main-purple));"> -->
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__wobble" src="" alt="" height="60" width="60">
+    </div>
+
+   
+
+    <!-- Content Wrapper. Contains page content -->
+    <!-- <div class="content-wrapper">  -->
+        <!-- <div class="content-wrapper"> -->
+            <!-- Content Header (Page header) -->
+            <!-- <section class="content-header">
+              <div class="container-fluid">
+                <div class="row mb-2">
+                  <div class="col-sm-6"> -->
+                    <!-- <h1>ADMIN</h1> -->
+                  <!-- </div> -->
+                  <!-- <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                      <li class="breadcrumb-item"><a href="#">Home</a></li>
+                      <li class="breadcrumb-item active">ADMIN </li>
+                    </ol>
+                  </div> -->
+                <!-- </div>
+              </div>
+            </section> -->
+        
+            <!-- Main content -->
+         
+          <section class="content" >
+              <div class="container" style="width: 400px; margin-top: 150px; margin-left: 300px ;">
+                <div class="title"><h1><b>LOGIN</b></h1></div>
+                <form action="#">
+                  <div class="user__details">
+                    <div class="input__box" >
+                      <span class="details">User name</span>
+                      <input type="text" id="userName" placeholder="User name">
+                    </div>
+                  </div>
+                    
+                  <div class="user__details">        
+                    <div class="input__box">
+                      <span class="details">Password</span>
+                      <input type="text"  id="password"  placeholder="Password" required>
+                    </div>          
+                  </div>
+             
+                  <div class="button">
+                    <input type="submit" value="SUBMIT" onclick="submitdata()">
+                  </div>
+                </form>
+              </div> <!-- /.container-fluid -->
+           </section>
+            <!-- /.content -->
+          <!-- </div> -->
+  <!-- </div> -->
+  <!-- ./wrapper -->
+
+  <!-- REQUIRED SCRIPTS -->
+  <!-- JQuery min js -->
+  <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="assets/dist/js/adminlte.js"></script>
+  <script src="assets/plugins/select2/js/select2.full.min.js"></script>
+  <!-- jQuery Mapael -->
+  <script src="assets/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+  <script src="assets/plugins/raphael/raphael.min.js"></script>
+  <script src="assets/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+  <script src="assets/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+  <!-- ChartJS -->
+  <script src="assets/plugins/chart.js/Chart.min.js"></script>
+  <!-- <script src="assets/plugins/chart.js/Chart.min.js"></script> -->
+
+  <!-- amcharts links -->
+  <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+  <!-- AdminLTE for demo purposes -->
+  <script src="assets/dist/js/demo.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="assets/dist/js/pages/dashboard2.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script type="text/javascript"></script>
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    
+  <!-- swal alert -->
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+ <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+
+<script>
+  var socket = io();
+
+
+  $(function () {
+      //Initialize Select2 Elements
+      $('.select2').select2()
+
+      //Initialize Select2 Elements
+      $('.select2bs4').select2({
+        theme: 'bootstrap4'
+      })
+    });
+   
+  $(function () {
+    bsCustomFileInput.init();
+  });
+
+
+    function submitdata () {
+      // $("#final_meterData").empty();
+
+      var userName = $("#userName").val();
+      var password = $("#password").val();
+    // var from_Data = $("#fromDate_id").val();
+
+      console.log("ppppppppppp", userName, password);
+      
+      socket.emit("getLogin_data", userName, password);
+      console.log("getLogin_data77777777:::::",  userName, password);
+    }
+   
+  socket.on("send_Login_pass", function (login_data) {
+		var user = login_data[0];
+		var pass = login_data[1];
+
+		var useremail_id = document.getElementById("userName").value;
+		var password = document.getElementById("password").value;
+
+		if (useremail_id == user) {
+			if (password == pass) {
+				console.log("loginnnnnnnnnnnnnn", useremail_id);
+        Swal.fire("Login Successful!!");
+        setTimeout(() => {
+        window.location.href = "/index2.html";
+        }, 2000);
+
+      } else if (password == pass) {
+        console.log("loginnnnnnnnnnnnnn", useremail_id);
+        // Swal.fire("Login Successful!!");
+        setTimeout(() => {
+        window.location.href = "/admin.html";
+        }, 2000);
+      }else if (password == pass) {
+        console.log("loginnnnnnnnnnnnnn", useremail_id);
+        // Swal.fire("Login Successful!!");
+        setTimeout(() => {
+        window.location.href = "/mail.html";
+        }, 2000);
+      }else {
+          Swal.fire("Username or Password is incorrect, Please try again!!");
+      }
+
+			//window.location.replace("/submit_form");
+
+		}
+		else if (useremail_id == null || useremail_id == "") {
+			Swal.fire("Please Enter User Name");
+		}
+		else if (password == null || password == "") {
+			Swal.fire("Please Enter Password");
+		}
+		else {
+			Swal.fire("Username or Password is incorrect, Please try again!!");
+		}
+
+	});
+</script>
+</body>
+</html>

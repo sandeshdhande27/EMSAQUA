@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMS</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+</head>
+
+<style>
+  .custom-thead {
+      background-color: #007BFF; /* Blue color */
+      color: #FFFFFF; /* White text */
+  }
+
+  button {
+    font-size: 18px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    will-change: box-shadow,transform;
+    background: radial-gradient( 100% 100% at 100% 0%, #89E5FF 0%, #5468FF 100% );
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+    padding: 0 2em;
+    border-radius: 0.3em;
+    color: #fff;
+    height: 2.6em;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+
+  button:hover {
+    box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #3c4fe0;
+    transform: translateY(-0.1em);
+  }
+
+  button:active {
+    box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
+    transform: translateY(0em);
+  }
+
+
+    /* Add this CSS to your existing styles */
+body.sidebar-minimized .content-wrapper,
+body.sidebar-collapse .content-wrapper {
+    margin-left: 0;
+}
+
+.sidebar {
+    display: none;
+}
+
+/* Optional: Hide the toggle button */
+.navbar-toggler {
+    display: none;
+}
+</style>
+
+<!-- <body class="hold-transition sidebar-mini"> -->
+<!-- <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed"> -->
+<body class="dark-mode">
+
+
+<!-- <div class="wrapper"> -->
+  <div class="content-wrapper"  style="margin-left: 0;" >
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-dark"  style="margin-left: 0;">
+    
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <!-- <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li> -->
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="login.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index.html" class="nav-link">Monitor view</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index2.html" class="nav-link">Overview</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="livemeter.html" class="nav-link">Meter Status</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Reports</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="mailindex.html" class="nav-link">Mail</a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="" onclick="history.back()" role="button">
+            <i class="fas fa-arrow-left"></i> Back
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="" onclick="location.reload()" role="button">
+            <i class="fas fa-sync-alt"></i> Refresh
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="fullscreen" href="" role="button">
+            <i class="fas fa-expand-arrows-alt"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="" role="button">
+            <i class="fas fa-th-large"></i>
+          </a>
+        </li>
+      </ul>   
+  </nav>
+  <!-- /.navbar -->
+
+ 
+  <!-- Main Sidebar Container
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <Brand Logo --> 
+    <!-- <a href="index3.html" class="brand-link">
+      <img src="" alt="" class="brand-image img-circle elevation-3" style="opacity: .8;">
+      <span class="brand-text font-weight-light"><h1><b>EMS</b></h1></span>
+    </a>
+  </aside>  -->
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <!-- <div class="content-wrapper"> -->
+
+    <div class="content-wrapper" style="margin-left: 0;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <!-- <h1>DataTables</h1> -->
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header" style="background-color: #007BFF;">
+                <h3 class="card-title"><b style="color: #fff;">REPORTS</b></h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+
+              <!-- filter start -->
+                <div class="masonry row">
+                  <div class="col-md-2">
+                      <label> Select Meter</label>
+                      <select id="meter_name" class="js-example-basic-single w-100 form-control">
+                          <!-- <option>Select Meter</option> -->
+                      </select>
+                  </div>              
+                  <div class="col-md-2">
+                      <label>From Date</label>
+                      <input type="date" class="form-control" id="fromDate_id">
+                      <!-- <input type="date" id="datePicker"> -->
+
+                  </div>
+                  <div class="col-md-2">
+                    <label>Date To </label>
+                    <input type="date" class="form-control" id="toDate_id">
+                  </div>
+
+                  <div class="col-md-3"></div>
+
+                  <div class="col-md-2">
+                    <button onclick="getFilteredData()"><b>Filter</b></button> 
+                             
+                    <button id="btn-export"><b>Export</b></button>
+                </div>
+                </div>
+              <!-- filter end  -->
+              <br>
+              <br>
+              <br>
+
+            <div class="table-responsive">
+              <table id="report_table" class="table table-bordered table-hover">
+                  <thead class="custom-thead">
+                            <!-- <table id="example2" class="table table-bordered table-hover" >
+                              <thead> -->
+                              <tr>
+                                <th >#</th>
+                                <th>Meter</th>
+                                <th>Load</th>
+                                <th>KWH</th>
+                                <th>Current</th>
+                                <th>Voltage</th>
+                                <th>Frequency</th>
+                                <th>Power Factor</th>
+                                <th>Date</th>
+                                <!-- <td>
+                                  <a href="trend.html" class="btn btn-link btn-trend" data-meterid="${meter_id}">
+                                    <i class="fas fa-chart-line"></i> 
+                                  </a>
+                                </td> -->
+                              </tr>
+                  </thead>
+
+                  <tbody id="final_meterData">
+                  </tbody>
+
+                  <tfoot>
+                  </tfoot>
+                </table>
+            </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- /.content-wrapper -->
+  <footer class="main-footer" style="margin-right: 200px;">
+    <!-- <div class="float-right d-none d-sm-block">
+    </div> -->
+    <strong style="margin-left: 40%;">Copyright &copy; 2024 <a href="">Optim</a>.</strong> All rights reserved.
+  </footer>
+
+</div>
+
+<!-- jQuery -->
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="assets/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="assets/plugins/jszip/jszip.min.js"></script>
+<script src="assets/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="assets/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+<script src="assets/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="assets/dist/js/demo.js"></script>
+<!-- Page specific script -->
+
+<!-- amchrts links -->
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+
+<!-- AdminLTE for demo purposes -->
+<script src="assets/dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="assets/dist/js/pages/dashboard2.js"></script>
+
+<script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script type="text/javascript"></script>
+
+<script>
+var socket = io();
+
+   document.addEventListener('DOMContentLoaded', function() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+    var yyyy = today.getFullYear();
+
+    var todayStr = yyyy + '-' + mm + '-' + dd;
+    document.getElementById('fromDate_id').value = todayStr;
+    document.getElementById('toDate_id').value = todayStr;
+});
+
+  // export button onclick //
+  const exportButton = document.getElementById('btn-export');
+  const table = document.getElementById('report_table');
+
+    exportButton.addEventListener('click', () => {
+      const wb = XLSX.utils.table_to_book(table, {sheet: 'sheet-1'});
+      XLSX.writeFile(wb, 'Report.xlsx');
+    });
+  // export button onclick //
+
+ 
+  ///// get meter name
+  socket.emit('getMeter_Namelist', 'getProcess_Namelist');
+  
+  socket.on('sendMeter_namelist', function (meterArr) {
+    console.log("meter_namelist::::", meterArr)
+      $('#meter_name').empty();
+      $('#meter_name').append(`<option>Select Meter</option>`)
+      
+      for (var i = 0; i < meterArr.length; i++) {
+          $('#meter_name').append(`<option>${meterArr[i]}</option>`)
+      }
+     
+  });
+  ///// get meter name
+  
+    
+  // socket.on("get_meter_details", function (meterDetails) {
+  // console.log("get_meter_detailssssss", meterDetails);
+
+  //     $("#final_meterData").empty();
+
+  //     if (meterDetails.length > 0) {
+  //       for (var i = 0; i < meterDetails.length; i++) {
+          
+  //         var num = i + 1;
+  //         var meter_id = meterDetails[i].meter_id || "-";
+  //         var load = meterDetails[i].load_name || "-";
+  //         var KWH = meterDetails[i].load_value || "-";
+  //         var KW = meterDetails[i].kW || "-";
+  //         var current = meterDetails[i].I || "-";
+  //         var voltage = meterDetails[i].V || "-";
+  //         var frequency = meterDetails[i].frequency || "-";
+  //         var power_factor = meterDetails[i].power_factor || "-";
+  //         var date = meterDetails[i].date_time || "-";
+
+       
+  //         $("#final_meterData").append(`
+  //         <tr>
+  //           <td>${num}</td>
+  //           <td>${meterDetails[i].meter_id || "-"}</td>     
+  //           <td>${meterDetails[i].load || "-"}</td>
+  //           <td>${meterDetails[i].KWH || "-"}</td>
+  //           <td>${meterDetails[i].KW || "-"}</td>
+  //           <td>${meterDetails[i].current || "-"}</td>
+  //           <td>${meterDetails[i].voltage || "-"}</td>  
+  //           <td>${meterDetails[i].frequency || "-"}</td>  
+  //           <td>${meterDetails[i].power_factor || "-"}</td>
+  //           <td>${meterDetails[i].date || "-"}</td>  
+  //         </tr>
+  //   `);
+  //       }
+  //     } else {
+  //       $("#final_meterData ").append("<tr><td colspan=7 style='text-align:center;'>No data available...</td></tr>");
+  //     }
+  //   });
+
+
+ 
+  
+ 
+  // document.getElementById('fromDate_id').value;
+  // document.getElementById('toDate_id').value;
+    
+  
+  // Bydefault display data
+  var to_Data = $("#toDate_id").val();
+  var from_Data = $("#fromDate_id").val();
+
+  socket.emit("view_meter_details", to_Data, from_Data);
+  
+  socket.emit("bydefault_view_meter_details", to_Data, from_Data);
+  console.log("bydefault_view_meter_details::::", to_Data, from_Data);
+  // Bydefault display data 
+
+
+  socket.on("default_get_meter_details", function (defaultmeterDetails) {
+  console.log("default_get_meter_details:::::", defaultmeterDetails);
+
+  $("#final_meterData").empty();
+
+  if (defaultmeterDetails.length > 0) {
+    for (var i = 0; i < defaultmeterDetails.length; i++) {
+      var num = i + 1;
+      var meter_id = defaultmeterDetails[i].meter_id || "-";
+      var load = defaultmeterDetails[i].load_name || "-";  
+      var KWH = defaultmeterDetails[i].kWh || "-";
+      var current = defaultmeterDetails[i].I || "-";
+      var voltage = defaultmeterDetails[i].V || "-";
+      var frequency = defaultmeterDetails[i].frequency || "-";
+      var power_factor = defaultmeterDetails[i].power_factor || "-";
+      var date = defaultmeterDetails[i].date || "-";
+
+      $("#final_meterData").append(`
+        <tr>
+          <td>${num}</td>
+          <td>${meter_id}</td>
+          <td>${load}</td>
+          <td>${KWH}</td>
+          <td>${current}</td>
+          <td>${voltage}</td>
+          <td>${frequency}</td>
+          <td>${power_factor}</td>
+          <td>${date}</td>
+        </tr>
+      `);
+    }
+  } else {
+    $("#final_meterData").append("<tr><td colspan=10 style='text-align:center;'>No data available...</td></tr>");
+  }
+});
+   
+  socket.on("get_meter_details", function (meterDetails) {
+  console.log("get_meter_detailssssss:::::", meterDetails);
+
+  $("#final_meterData").empty();
+
+  if (meterDetails.length > 0) {
+    for (var i = 0; i < meterDetails.length; i++) {
+      var num = i + 1;
+      var meter_id = meterDetails[i].meter_id || "-";
+      var load = meterDetails[i].load_name || "-";  
+      var KWH = meterDetails[i].kWh || "-";
+      // var KW = meterDetails[i].KW || "-";
+      var current = meterDetails[i].I || "-";
+      var voltage = meterDetails[i].V || "-";
+      var frequency = meterDetails[i].frequency || "-";
+      var power_factor = meterDetails[i].power_factor || "-";
+      var date = meterDetails[i].date || "-";
+
+      $("#final_meterData").append(`
+        <tr>
+          <td>${num}</td>
+          <td>${meter_id}</td>
+          <td>${load}</td>
+          <td>${KWH}</td>
+          <td>${current}</td>
+          <td>${voltage}</td>
+          <td>${frequency}</td>
+          <td>${power_factor}</td>
+          <td>${date}</td>
+        </tr>
+      `);
+    }
+  } else {
+    $("#final_meterData ").append("<tr><td colspan=10 style='text-align:center;'>No data available...</td></tr>");
+  }
+});
+
+
+
+
+    function getFilteredData() {
+      // $("#final_meterData").empty();
+
+      var meterName = $("#meter_name").val();
+      var to_Data = $("#toDate_id").val();
+      var from_Data = $("#fromDate_id").val();
+
+      console.log("ppppppppppp", meterName, to_Data, from_Data);
+      if(meterName == 'Select Meter'){
+        meterName = ''
+      }
+      console.log("aaaaaaaaaaaaaa",meterName);
+      
+      socket.emit("view_meter_details", meterName, to_Data, from_Data);
+      console.log("view_meter_details1111111:::::", meterName, to_Data, from_Data);
+    }
+   
+
+
+    
+  /////////////// icon strt //////////////////
+      $(document).on("click", ".btn-trend", function(e) {
+      e.preventDefault(); // Prevent default link behavior
+
+      // Get the meter ID from the data attribute
+      var meterId = $(this).data("meterid");
+
+      // Redirect to trend.html with the meter ID as a parameter
+      window.location.href = "trend.html?meterId=" + meterId;
+  });
+  /////////////// icon end ///////////////////
+</script>
+
+</body>
+</html>
