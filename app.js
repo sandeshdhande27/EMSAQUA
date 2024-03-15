@@ -28,8 +28,11 @@ const sqlConfig = {
   user: "admin",
   password: "admin",
   database: "EMS",
-  server: 'localhost\\MSSQLSERVER2022',
+  // server: 'localhost\\MSSQLSERVER2022',
+	server: '192.168.1.14\\MSSQLSERVER2022',
   // server: "DESKTOP-FCCFFB0",
+  // server: "DESKTOP-FCCFFB0",
+	
 
   pool: {
     max: 10,
